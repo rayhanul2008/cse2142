@@ -49,7 +49,7 @@ public class StudentList {
             System.out.println(Constants.loading);
             try {
                 BufferedWriter bufferedWriter = new BufferedWriter(
-                        new FileWriter(Constants.file, true));
+                        new FileWriter(Constants.file, true));  // Improvement BufferWriter
                 bufferedWriter.write(Constants.delimator + args[0].substring(1) + Constants.update + new SimpleDateFormat(Constants.dateFormat).format(new Date()));
                 bufferedWriter.close();
             } catch (Exception e) {
@@ -69,7 +69,7 @@ public class StudentList {
             System.out.println(Constants.loaded);
         } else if (args[0].contains(Constants.count)) {
             System.out.println(Constants.loading);
-            String line = getString();
+            String line = getString(); // Improvement Line
             int count = 1;
             for (Character charind : line.toCharArray()) {
                 if (charind == Constants.space) {
