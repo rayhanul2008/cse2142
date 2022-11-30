@@ -3,10 +3,20 @@ import java.text.*;
 import java.util.*;
 
 public class StudentList {
-    public static void main(String[] args) {
+    public static void showGuideLine() {
+        System.out.println("Argument List: ");
+        System.out.println("r = print random studnt list");
+        System.out.println("+x = add studnent with name x in the list");
+        System.out.println("+X :  add student with name X in the list");
+        System.out.println("?X :  search for student named X in the list");
+    }
 
+    public static void main(String[] args) {
+        if (args.length == 0) {
+            showGuideLine();
+        }
 //		Check arguments
-        if (args[0].equals("a")) {
+        else if (args[0].equals("a")) {
             System.out.println("Loading data ...");
             try {
                 BufferedReader s = new BufferedReader(
@@ -97,6 +107,8 @@ public class StudentList {
             } catch (Exception e) {
             }
             System.out.println("Data Loaded.");
+        } else {
+            showGuideLine();
         }
     }
 }
