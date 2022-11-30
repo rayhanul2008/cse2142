@@ -34,31 +34,23 @@ public class StudentList {
         else if (args[0].equals(Constants.showAll)) {
             System.out.println(Constants.loading);
 
-            String line = getString();
-            String names[] = line.split(Constants.delimator);
+            String names[] = getString().split(Constants.delimator);
             for (String name : names) {
                 System.out.println(name);
             }
             System.out.println(Constants.loaded);
         } else if (args[0].equals(Constants.random)) {
             System.out.println(Constants.loading);
-            String line = getString();
-            String names[] = line.split(Constants.delimator);
+            String names[] = getString().split(Constants.delimator);
             Random newRandom = new Random();
-            int nextInt = newRandom.nextInt(names.length);
-            System.out.println(names[nextInt]);
+            System.out.println(names[newRandom.nextInt(names.length)]);
             System.out.println(Constants.loaded);
         } else if (args[0].contains(Constants.plus)) {
             System.out.println(Constants.loading);
             try {
                 BufferedWriter bufferedWriter = new BufferedWriter(
                         new FileWriter(Constants.file, true));
-                String time = args[0].substring(1);
-                Date date = new Date();
-                String dateformate = Constants.dateFormat;
-                DateFormat dateFormat = new SimpleDateFormat(dateformate);
-                String formateDate = dateFormat.format(date);
-                bufferedWriter.write(Constants.delimator + time + Constants.update + formateDate);
+                bufferedWriter.write(Constants.delimator + args[0].substring(1) + Constants.update + new SimpleDateFormat(Constants.dateFormat).format(new Date()));
                 bufferedWriter.close();
             } catch (Exception e) {
             }
@@ -66,8 +58,7 @@ public class StudentList {
             System.out.println(Constants.loaded);
         } else if (args[0].contains(Constants.questionMark)) {
             System.out.println(Constants.loading);
-            String line = getString();
-            String names[] = line.split(Constants.delimator);
+            String names[] = getString().split(Constants.delimator);
             boolean done = false;
             String substring = args[0].substring(1);
             for (int indexnumber = 0; indexnumber < names.length && !done; indexnumber++) {
@@ -79,8 +70,7 @@ public class StudentList {
             System.out.println(Constants.loaded);
         } else if (args[0].contains(Constants.count)) {
             System.out.println(Constants.loading);
-            String readLine = getString();
-            char toCharArray[] = readLine.toCharArray();
+            char toCharArray[] = getString().toCharArray();
             boolean in_word = true;
             int count = 1;
             int charword = 0;
