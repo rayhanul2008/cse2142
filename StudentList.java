@@ -59,12 +59,11 @@ public class StudentList {
         } else if (args[0].contains(Constants.questionMark)) {
             System.out.println(Constants.loading);
             String names[] = getString().split(Constants.delimator);
-            boolean done = false;
             String substring = args[0].substring(1);
-            for (int indexnumber = 0; indexnumber < names.length && !done; indexnumber++) {
+            for (int indexnumber = 0; indexnumber < names.length; indexnumber++) {
                 if (names[indexnumber].equals(substring)) {
                     System.out.println(Constants.found);
-                    done = true;
+                    break;
                 }
             }
             System.out.println(Constants.loaded);
