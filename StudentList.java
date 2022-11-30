@@ -86,9 +86,8 @@ public class StudentList {
                             count++;
                             in_word = false;
                         }
-                    }
-                    else{
-                        if(c != ','){
+                    } else {
+                        if (c != ',') {
                             charword++;
                             in_word = true;
                         }
