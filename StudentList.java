@@ -69,24 +69,14 @@ public class StudentList {
             System.out.println(Constants.loaded);
         } else if (args[0].contains(Constants.count)) {
             System.out.println(Constants.loading);
-            char toCharArray[] = getString().toCharArray();
-            boolean in_word = true;
+            String line = getString();
             int count = 1;
-            int charword = 0;
-            for (char charindex : toCharArray) {
-                if (charindex == Constants.space) {
-                    if (in_word) {
-                        count++;
-                        in_word = false;
-                    }
-                } else {
-                    if (charindex != Constants.charDelimator) {
-                        charword++;
-                        in_word = true;
-                    }
+            for (Character charind : line.toCharArray()) {
+                if (charind == Constants.space) {
+                    count++;
                 }
             }
-            System.out.println(count + Constants.wordsFound + charword);
+            System.out.println(count + Constants.wordsFound + line.length());
             System.out.println(Constants.loaded);
         } else {
             showGuideLine();
